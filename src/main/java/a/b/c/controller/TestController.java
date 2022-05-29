@@ -1,6 +1,7 @@
 package a.b.c.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,9 +19,12 @@ public class TestController {
 
 	@RequestMapping(value="/")
 	public ModelAndView test(@RequestParam HashMap <String, String> params,
-							 ModelAndView mav) {
-		HashMap<String,String> data = iTestService.testGetData(); 
+							 ModelAndView mav) throws Throwable{
+		List<HashMap<String, String>> list = iTestService.testGetList(); 
+		System.out.println(list);
 		
+		
+		mav.addObject("list", list);
 		mav.setViewName("index");
 		return mav;
 	}

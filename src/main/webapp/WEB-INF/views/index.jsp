@@ -9,5 +9,7 @@
 <body>
 
 <h1>hello</h1>
+<h1>${data.VAL1}</h1>
+<input  id="oldPsNum" value="${data.VAL1}" />
 </body>
 </html>
